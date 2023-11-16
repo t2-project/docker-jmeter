@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/bin/sh
 # Just runs the container and waits for commands.
 
 # Install jmeter plugins available on /plugins volume
