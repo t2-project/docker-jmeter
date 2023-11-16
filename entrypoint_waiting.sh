@@ -22,4 +22,5 @@ export JVM_ARGS="-Xmn${JVM_XMN}m -Xms${JVM_XMS}m -Xmx${JVM_XMX}m"
 echo "START Jmeter container on `date`"
 echo "JVM_ARGS=${JVM_ARGS}"
 
-exec tail -f jmeter.log
+touch /jmeter.log
+exec tail -f /jmeter.log
