@@ -2,7 +2,7 @@
 # https://github.com/hhcordero/docker-jmeter-server/blob/master/Dockerfile
 FROM alpine:3.18
 
-MAINTAINER Just van den Broecke<just@justobjects.nl>
+LABEL org.opencontainers.image.authors="Just van den Broecke<just@justobjects.nl"
 
 ARG JMETER_VERSION="5.6.2"
 ENV JMETER_HOME /opt/apache-jmeter-${JMETER_VERSION}
