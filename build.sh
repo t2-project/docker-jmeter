@@ -2,6 +2,6 @@
 
 JMETER_VERSION=${JMETER_VERSION:-"5.6.2"}
 IMAGE_TIMEZONE=${IMAGE_TIMEZONE:-"Europe/Amsterdam"}
+IMAGE_NAME="t2project/jmeter"
 
-# Example build line
-docker build  --build-arg JMETER_VERSION=${JMETER_VERSION} --build-arg TZ=${IMAGE_TIMEZONE} -t "t2project/jmeter:${JMETER_VERSION}" .
+docker build --build-arg JMETER_VERSION=${JMETER_VERSION} --build-arg TZ=${IMAGE_TIMEZONE} -t "${IMAGE_NAME}:${JMETER_VERSION}" .

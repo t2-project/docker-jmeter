@@ -30,7 +30,8 @@ echo "JVM_ARGS=${JVM_ARGS}"
 if [ $# -eq 0 ]; then
     echo "No arguments provided. Waiting..."
     touch /jmeter.log
-    exec tail -f /jmeter.log
+    # Use tini to be able to exit the container in interactive mode with CTRL+c
+    exec /sbin/tini -- tail -f /jmeter.log
 else
     echo "Arguments provided: $@"
     EXTRA_ARGS=-Dlog4j2.formatMsgNoLookups=true

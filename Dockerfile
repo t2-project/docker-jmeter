@@ -18,7 +18,7 @@ RUN    apk update \
 	&& apk upgrade \
 	&& apk add ca-certificates \
 	&& update-ca-certificates \
-	&& apk add --update openjdk8-jre tzdata curl unzip bash \
+	&& apk add --update openjdk8-jre tzdata curl unzip bash tini \
 	&& apk add --no-cache nss \
 	&& rm -rf /var/cache/apk/* \
 	&& mkdir -p /tmp/dependencies  \
@@ -29,6 +29,9 @@ RUN    apk update \
 
 # TODO: plugins (later)
 # && unzip -oq "/tmp/dependencies/JMeterPlugins-*.zip" -d $JMETER_HOME
+
+# Overwrite log configuration
+COPY log4j2.xml /opt/apache-jmeter-${JMETER_VERSION}/bin/log4j2.xml
 
 # Set global PATH such that "jmeter" command is found
 ENV PATH $PATH:$JMETER_BIN
