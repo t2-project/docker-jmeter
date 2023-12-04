@@ -36,9 +36,7 @@ COPY log4j2.xml /opt/apache-jmeter-${JMETER_VERSION}/bin/log4j2.xml
 # Set global PATH such that "jmeter" command is found
 ENV PATH $PATH:$JMETER_BIN
 
-# Entrypoint has same signature as "jmeter" command
-COPY entrypoint.sh /
-
 WORKDIR	${JMETER_HOME}
 
+COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
